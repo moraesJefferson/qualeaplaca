@@ -58,7 +58,7 @@ http://localhost:8080/qual-e-a-placa/resource/html/index.jsp
 
 Faça o download dos vídeos disponíveis no link abaixo:
 
-Link:
+Link:https://ufile.io/f/v1x5c
 
 Na página web selecione um dos video que foi baixado e clique em Upload File
 
