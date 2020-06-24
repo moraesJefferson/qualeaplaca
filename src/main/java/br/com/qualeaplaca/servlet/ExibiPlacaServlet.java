@@ -1,6 +1,8 @@
 package br.com.qualeaplaca.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,10 +21,10 @@ public class ExibiPlacaServlet extends HttpServlet {
 protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession sessao = request.getSession();
-		Foto foto = new Foto();
-		foto = (Foto) sessao.getAttribute("foto");
+		List<Foto> listaFotos = new ArrayList<Foto>();
+		listaFotos = (List<Foto>) sessao.getAttribute("listaFotos");
 			
-		request.setAttribute("imagem", foto);
+		request.setAttribute("listaFotos", listaFotos);
 		RequestDispatcher rd = request.getRequestDispatcher("/resource/html/exibir.jsp");
 		rd.forward(request, response);
 	}

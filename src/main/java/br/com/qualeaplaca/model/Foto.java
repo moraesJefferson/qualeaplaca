@@ -8,11 +8,12 @@ public class Foto implements Serializable{
 	
 	private Long id;
 	private String foto;
-	private Boolean sucess;
 	private String placa;
-	private String probability;
-	private String code;
 
+	public Foto() {
+		
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -28,29 +29,10 @@ public class Foto implements Serializable{
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
-
-	public Boolean getSucess() {
-		return sucess;
-	}
-	public void setSucess(Boolean sucess) {
-		this.sucess = sucess;
-	}
 	public String getPlaca() {
 		return placa;
 	}
 	public void setPlaca(String placa) {
 		this.placa = placa;
-	}
-	public String getProbability() {
-		return probability;
-	}
-	public void setProbability(String probability) {
-		this.probability = probability;
-	}
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
 	}
 }

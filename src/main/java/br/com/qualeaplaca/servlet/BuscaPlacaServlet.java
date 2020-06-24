@@ -1,6 +1,8 @@
 package br.com.qualeaplaca.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,26 +11,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import br.com.qualeaplaca.dto.FotoDto;
 import br.com.qualeaplaca.gateway.QualEaPlacaGateway;
 import br.com.qualeaplaca.model.Foto;
 
 @WebServlet("/buscaPlaca")
-public class QualEaPlacaServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class BuscaPlacaServlet extends HttpServlet {
 	
+	private static final long serialVersionUID = 3535096411477749375L;
+
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		FotoDto fotoDto = new FotoDto();
-		Foto foto = new Foto();
-		QualEaPlacaGateway gateway = QualEaPlacaGateway.newInstance();
 		
-		String img = request.getParameter("imagem");
-		fotoDto.setFoto(img.replaceAll("data:image/jpeg;base64,", ""));	
-		foto = gateway.buscaPlaca(fotoDto);
-		foto.setFoto("data:image/jpeg;base64,"+foto.getFoto());
+		List<Foto> listaFotos = new ArrayList<Foto>();
+		QualEaPlacaGateway gateway = QualEaPlacaGateway.newInstance();
+		listaFotos = gateway.buscaPlaca();
+		
+		for(Foto foto : listaFotos) {
+			System.out.println(foto.getFoto());
+			System.out.println(foto.getPlaca());
+		}
 		
 		HttpSession sessao = request.getSession();
-		sessao.setAttribute("foto",foto);
+		sessao.setAttribute("listaFotos",listaFotos);
+		
 		response.sendRedirect("exibiPlaca");
 	}
 

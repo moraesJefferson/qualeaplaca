@@ -1,5 +1,6 @@
 package br.com.qualeaplaca.dto;
 
+import java.io.InputStream;
 import java.io.Serializable;
 
 public class FotoDto implements Serializable{
@@ -12,6 +13,9 @@ public class FotoDto implements Serializable{
 	private String placa;
 	private String probability;
 	private String code;
+	private InputStream videoDto;
+	private String videoName;
+	private String video;
 	
 	public Long getId() {
 		return id;
@@ -49,4 +53,23 @@ public class FotoDto implements Serializable{
 	public void setCode(String code) {
 		this.code = code;
 	}
+	public InputStream getVideoDto() {
+		return videoDto;
+	}
+	public void setVideoDto(InputStream videoDto) {
+		this.videoDto = videoDto;
+	}
+	public String getVideoName() {
+		return videoName;
+	}
+	public void setVideoName(String videoName) {
+		this.videoName = videoName;
+	}
+	public String getVideo() {
+		return video;
+	}
+	public void setVideo(String video) {
+		this.video = video;
+	}
+	
 }

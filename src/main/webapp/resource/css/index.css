@@ -26,6 +26,10 @@ subtitle {
     display: none;
 }
 
+.show {
+	display: inline-block;
+}
+
 .click-for-photo {
     border-radius: 8px;
     background-color: white;

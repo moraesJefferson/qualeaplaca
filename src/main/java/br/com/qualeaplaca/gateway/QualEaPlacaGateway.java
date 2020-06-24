@@ -1,7 +1,9 @@
 package br.com.qualeaplaca.gateway;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.qualeaplaca.client.QualEaPlacaRestApiServiceImpl;
-import br.com.qualeaplaca.dto.FotoDto;
 import br.com.qualeaplaca.model.Foto;
 
 public class QualEaPlacaGateway {
@@ -22,15 +24,14 @@ public class QualEaPlacaGateway {
 		return instance;
 	}
 
-	public Foto buscaPlaca(FotoDto fotoDto) {
+	public List<Foto> buscaPlaca() {
 		
-		Foto foto = new Foto();
+		List<Foto> listaFotos = new ArrayList<Foto>();
 		
-		if(fotoDto != null) {
-			QualEaPlacaRestApiServiceImpl service = newInstanceQualEaPlacaService();		
-			foto = service.buscaPlaca(fotoDto);
-		}	
-		return foto;
+		QualEaPlacaRestApiServiceImpl service = newInstanceQualEaPlacaService();		
+		listaFotos = service.buscaPlaca();
+			
+		return listaFotos;
 	}
 	
 	private QualEaPlacaRestApiServiceImpl newInstanceQualEaPlacaService() {

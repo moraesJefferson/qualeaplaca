@@ -1,9 +1,10 @@
 package br.com.qualeaplaca.client;
 
-import br.com.qualeaplaca.dto.FotoDto;
+import java.util.List;
+
 import br.com.qualeaplaca.model.Foto;
+import br.com.qualeaplaca.responses.Responses;
 import br.com.qualeaplaca.rest.QualEaPlacaRestApiClient;
-import br.com.qualeaplaca.responses.*;
 import retrofit2.Call;
 import retrofit2.Response;
 
@@ -23,9 +24,9 @@ public class QualEaPlacaRestApiServiceImpl extends ApiService{
 		client = getRetrofitClientJSON(url).create(QualEaPlacaRestApiClient.class);		
 	}
 	
-	public Foto buscaPlaca(FotoDto fotoDto) {
-		Call<Responses<Foto>> serviceClient = client.buscarPlaca(fotoDto);
-		Response<br.com.qualeaplaca.responses.Responses<Foto>> foto = null;
+	public List<Foto> buscaPlaca() {
+		Call<Responses<List<Foto>>> serviceClient = client.buscarPlaca();
+		Response<br.com.qualeaplaca.responses.Responses<List<Foto>>> foto = null;
 		try {
 			foto = serviceClient.execute();
 			if(foto.code() !=200) {

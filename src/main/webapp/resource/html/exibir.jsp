@@ -14,17 +14,18 @@
         <h2 class="title-area">
             <div class="title">Qual é a placa?</div>
         </h2>
-	        <input id="photo" class="hidden" accept="image/*" type="file" name="foto"></input>
-	        <div class="picture-square">
-	            <img class="picture-img" id="photo-show"  src="<c:url value="${imagem.foto}"/>" alt=""/>
-	        </div>
-	        <div id="response-box" class="response-box">
-	        	<input type="text" name="code" id="code" value="${imagem.code}" disabled="disabled">
-	        	<input type="text" name="probability" id="probability" value="${imagem.probability}" disabled="disabled">
-	        	<input type="text" name="placa" id="placa" value="${imagem.placa}" disabled="disabled">
-	        	<input type="text" name="sucess" id="sucess" value="${imagem.sucess}" disabled="disabled">	        
-	        </div>
-	        <input type="hidden" name="imagem" id="imagem">	        	
+        	<c:forEach var="imagem" items="${listaFotos}">
+        		<div style="margin-bottom: 20px;">
+			        <input id="photo" class="hidden" accept="image/*" type="file" name="foto"></input>
+			        <div class="picture-square">
+			            	<img class="picture-img" id="photo-show"  src="<c:url value="${imagem.foto}"/>" alt=""/>	        
+			       </div>
+			        <div id="response-box" class="response-box" >
+			        	<input type="text" name="placa" id="placa" value="${imagem.placa}" disabled="disabled">	        
+			        </div>
+		        	<input type="hidden" name="imagem" id="imagem">
+		        </div>
+	        </c:forEach>        	
     </div>
 </body>
 </html>

@@ -21,9 +21,9 @@ public class ApiService {
 	}
 	
 	protected static Retrofit getRetrofitClient(String url, final String contentType) {
-		OkHttpClient cliente = new OkHttpClient.Builder().connectTimeout(30, TimeUnit.SECONDS)
-				.writeTimeout(30, TimeUnit.SECONDS)
-				.readTimeout(30, TimeUnit.SECONDS)
+		OkHttpClient cliente = new OkHttpClient.Builder().connectTimeout(300, TimeUnit.MINUTES)
+				.writeTimeout(300, TimeUnit.MINUTES)
+				.readTimeout(300, TimeUnit.MINUTES)
 				.addInterceptor(new Interceptor(){
 					@Override
 					public Response intercept(Chain chain) throws IOException {
